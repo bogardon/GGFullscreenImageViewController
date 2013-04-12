@@ -1,12 +1,12 @@
 //
-//  GGFullScreenImageViewController.m
+//  GGFullscreenImageViewController.m
 //  TFM
 //
 //  Created by John Wu on 6/5/12.
 //  Copyright (c) 2012 TFM. All rights reserved.
 //
 
-#import "GGFullScreenImageViewController.h"
+#import "GGFullscreenImageViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 static const double kAnimationDuration = 0.3;
@@ -36,7 +36,7 @@ static inline NSInteger RadianDifference(UIInterfaceOrientation from, UIInterfac
     return gg_from-gg_to;
 }
 
-@interface GGFullScreenImageViewController () <UIScrollViewDelegate>
+@interface GGFullscreenImageViewController () <UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIView *containerView;
@@ -48,7 +48,7 @@ static inline NSInteger RadianDifference(UIInterfaceOrientation from, UIInterfac
 
 @end
 
-@implementation GGFullScreenImageViewController
+@implementation GGFullscreenImageViewController
 
 - (id) init {
     self = [super init];

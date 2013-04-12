@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		728817501717C57800B5E46B /* GGFullscreenImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7288174F1717C57800B5E46B /* GGFullscreenImageViewController.m */; };
 		72E4F76D17154F9600644B6C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72E4F76C17154F9600644B6C /* UIKit.framework */; };
 		72E4F76F17154F9600644B6C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72E4F76E17154F9600644B6C /* Foundation.framework */; };
 		72E4F77117154F9600644B6C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72E4F77017154F9600644B6C /* CoreGraphics.framework */; };
@@ -22,8 +23,6 @@
 		72E4F79317154F9600644B6C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72E4F76E17154F9600644B6C /* Foundation.framework */; };
 		72E4F79B17154F9600644B6C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72E4F79917154F9600644B6C /* InfoPlist.strings */; };
 		72E4F79E17154F9600644B6C /* GGFullscreenImageViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E4F79D17154F9600644B6C /* GGFullscreenImageViewControllerTests.m */; };
-		72E4F7A917154FBB00644B6C /* GGFullScreenImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E4F7A717154FBB00644B6C /* GGFullScreenImageViewController.m */; };
-		72E4F7AA17154FBB00644B6C /* GGFullScreenImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E4F7A717154FBB00644B6C /* GGFullScreenImageViewController.m */; };
 		72E4F7AC17154FC800644B6C /* okc.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72E4F7AB17154FC800644B6C /* okc.jpg */; };
 		72E4F7AD17154FC800644B6C /* okc.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72E4F7AB17154FC800644B6C /* okc.jpg */; };
 		72E4F7B017154FDC00644B6C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E4F7AF17154FDC00644B6C /* ViewController.m */; };
@@ -42,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7288174E1717C57800B5E46B /* GGFullscreenImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGFullscreenImageViewController.h; sourceTree = "<group>"; };
+		7288174F1717C57800B5E46B /* GGFullscreenImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGFullscreenImageViewController.m; sourceTree = "<group>"; };
 		72E4F76917154F9600644B6C /* GGFullscreenImageViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GGFullscreenImageViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72E4F76C17154F9600644B6C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		72E4F76E17154F9600644B6C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -62,8 +63,6 @@
 		72E4F79A17154F9600644B6C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		72E4F79C17154F9600644B6C /* GGFullscreenImageViewControllerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGFullscreenImageViewControllerTests.h; sourceTree = "<group>"; };
 		72E4F79D17154F9600644B6C /* GGFullscreenImageViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGFullscreenImageViewControllerTests.m; sourceTree = "<group>"; };
-		72E4F7A717154FBB00644B6C /* GGFullScreenImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGFullScreenImageViewController.m; sourceTree = "<group>"; };
-		72E4F7A817154FBB00644B6C /* GGFullScreenImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGFullScreenImageViewController.h; sourceTree = "<group>"; };
 		72E4F7AB17154FC800644B6C /* okc.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = okc.jpg; sourceTree = "<group>"; };
 		72E4F7AE17154FDC00644B6C /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		72E4F7AF17154FDC00644B6C /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
@@ -132,11 +131,11 @@
 				72E4F77B17154F9600644B6C /* AppDelegate.h */,
 				72E4F77C17154F9600644B6C /* AppDelegate.m */,
 				72E4F78417154F9600644B6C /* MainStoryboard.storyboard */,
+				7288174E1717C57800B5E46B /* GGFullscreenImageViewController.h */,
+				7288174F1717C57800B5E46B /* GGFullscreenImageViewController.m */,
 				72E4F7AE17154FDC00644B6C /* ViewController.h */,
 				72E4F7AF17154FDC00644B6C /* ViewController.m */,
 				72E4F7AB17154FC800644B6C /* okc.jpg */,
-				72E4F7A717154FBB00644B6C /* GGFullScreenImageViewController.m */,
-				72E4F7A817154FBB00644B6C /* GGFullScreenImageViewController.h */,
 				72E4F77317154F9600644B6C /* Supporting Files */,
 			);
 			path = GGFullscreenImageViewController;
@@ -289,8 +288,8 @@
 			files = (
 				72E4F77917154F9600644B6C /* main.m in Sources */,
 				72E4F77D17154F9600644B6C /* AppDelegate.m in Sources */,
-				72E4F7A917154FBB00644B6C /* GGFullScreenImageViewController.m in Sources */,
 				72E4F7B017154FDC00644B6C /* ViewController.m in Sources */,
+				728817501717C57800B5E46B /* GGFullscreenImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,7 +298,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				72E4F79E17154F9600644B6C /* GGFullscreenImageViewControllerTests.m in Sources */,
-				72E4F7AA17154FBB00644B6C /* GGFullScreenImageViewController.m in Sources */,
 				72E4F7B117154FDC00644B6C /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,6 +471,7 @@
 				72E4F7A317154F9600644B6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		72E4F7A417154F9600644B6C /* Build configuration list for PBXNativeTarget "GGFullscreenImageViewControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -481,6 +480,7 @@
 				72E4F7A617154F9600644B6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

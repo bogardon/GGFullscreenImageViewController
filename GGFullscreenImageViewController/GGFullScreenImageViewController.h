@@ -1,5 +1,5 @@
 //
-//  GGFullScreenImageViewController.h
+//  GGFullscreenImageViewController.h
 //  TFM
 //
 //  Created by John Wu on 6/5/12.
@@ -15,7 +15,7 @@ typedef NS_ENUM(NSUInteger, GGOrientation) {
     GGOrientationLandscapeRight = 3
 };
 
-@interface GGFullScreenImageViewController : UIViewController
+@interface GGFullscreenImageViewController : UIViewController
 
 @property (nonatomic, retain) UIImageView *liftedImageView;
 @property (nonatomic, assign) UIInterfaceOrientationMask supportedOrientations;

@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "GGFullScreenImageViewController.h"
+#import "GGFullscreenImageViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
@@ -59,7 +59,7 @@
 
 - (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    GGFullScreenImageViewController *vc = [[GGFullScreenImageViewController alloc] init];
+    GGFullscreenImageViewController *vc = [[GGFullscreenImageViewController alloc] init];
     vc.liftedImageView = cell.contentView.subviews[0];
     [self presentViewController:vc animated:YES completion:nil];
 }

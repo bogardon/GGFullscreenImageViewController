@@ -3,7 +3,7 @@ GGFullscreenImageViewController
 
 # Video
 
-[Click here](http://www.youtube.com/watch?v=eiONmNcgAR0&feature=youtu.be) to see it in action
+[Click here](http://www.youtube.com/watch?v=jdKS985eY1Q&feature=youtu.be) to see it in action
 
 # How To Use
 

@@ -1,6 +1,12 @@
 GGFullscreenImageViewController
 ===============================
 
+# Video
+
+[Click here](http://www.youtube.com/watch?v=eiONmNcgAR0&feature=youtu.be) to see it in action
+
+# How To Use
+
 `UIViewController` subclass that lets you fullscreen an `UIImageView`. Assuming `self` is your `UIViewController` subclass and `imageView` is the `UIImageView` you want to fullscreen. Just do:
 
     GGFullscreenImageViewController *vc = [[GGFullscreenImageViewController alloc] init];
@@ -8,3 +14,7 @@ GGFullscreenImageViewController
     [self presentViewController:vc animated:YES completion:nil];
 
 You can optionally set `supportedOrientations` on `GGFullscreenImageViewController`. By default, `GGFullscreenImageViewController` supports all orientations defined in your info-plist. `GGFullscreenImageViewController` also provides a `UIScrollView` to allow zooming.
+
+# Notes
+
+You should set `imageView.contentMode = UIViewContentModeScaleAspectFit` for best results.

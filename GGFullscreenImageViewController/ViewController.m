@@ -10,7 +10,7 @@
 #import "GGFullScreenImageViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface ViewController ()
+@interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @end
 
@@ -30,22 +30,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
-
-    UIImage *image = [UIImage imageNamed:@"okc.jpg"];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
-    imageView.frame = CGRectMake(85, 10, 150, 85);
-    imageView.userInteractionEnabled = YES;
-    [self.view addSubview:imageView];
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap:)];
-    [imageView addGestureRecognizer:tap];
-}
-
-- (void) onTap:(UITapGestureRecognizer *)tap {
-    GGFullScreenImageViewController *vc = [[GGFullScreenImageViewController alloc] init];
-    vc.liftedImageView = (UIImageView *)tap.view;
-    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,5 +41,28 @@
 - (NSUInteger) supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskPortrait;
 }
+
+#pragma mark - UICollectionView
+
+- (NSInteger) numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+- (NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 20;
+}
+
+- (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CellIdentifier" forIndexPath:indexPath];
+    return cell;
+}
+
+- (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    GGFullScreenImageViewController *vc = [[GGFullScreenImageViewController alloc] init];
+    vc.liftedImageView = cell.contentView.subviews[0];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
 
 @end

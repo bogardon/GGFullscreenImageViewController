@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.name = "GGFullscreenImageViewController"
   s.version = "1.0.0"
-  s.summary = "Let's you fullscreen any UIImageView"
+  s.summary = 'Fullscreen any UIImageView.'
   s.license = 'MIT'
   s.homepage = 'https://github.com/bONchON/GGFullscreenImageViewController'
   s.author = {

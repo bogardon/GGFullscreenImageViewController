@@ -87,7 +87,10 @@ static inline NSInteger RadianDifference(UIInterfaceOrientation from, UIInterfac
     
     UIApplication *app = [UIApplication sharedApplication];
     UIView *window = [app keyWindow];
-    [app setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+
+    if (NSFoundationVersionNumber <= NSFoundationVersionNumber_iOS_6_1) {
+        [app setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+    }
 
     // imageView configuration
     self.imageView.image = self.liftedImageView.image;
@@ -125,8 +128,7 @@ static inline NSInteger RadianDifference(UIInterfaceOrientation from, UIInterfac
     
     UIApplication *app = [UIApplication sharedApplication];
     UIView *window = [app keyWindow];
-    [app setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
-    
+
     CGRect endFrame = [self.containerView convertRect:self.containerView.bounds toView:window];
 
     CABasicAnimation *center = [CABasicAnimation animationWithKeyPath:@"position"];
@@ -177,7 +179,10 @@ static inline NSInteger RadianDifference(UIInterfaceOrientation from, UIInterfac
 
     UIApplication *app = [UIApplication sharedApplication];
     UIWindow *window = [app keyWindow];
-    [app setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+
+    if (NSFoundationVersionNumber <= NSFoundationVersionNumber_iOS_6_1) {
+        [app setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+    }
 
     CGRect startFrame = [self.containerView convertRect:self.imageView.frame toView:window];
     self.imageView.layer.position = CGPointMake(startFrame.origin.x + floorf(startFrame.size.width/2), startFrame.origin.y + floorf(startFrame.size.height/2));

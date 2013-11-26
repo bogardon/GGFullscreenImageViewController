@@ -77,11 +77,9 @@ static inline NSInteger RadianDifference(UIInterfaceOrientation from, UIInterfac
     [self.scrollView addSubview:self.containerView];
 
     self.imageView = [[UIImageView alloc] initWithFrame:self.containerView.bounds];
-    self.imageView.autoresizingMask = self.view.autoresizingMask;
-    self.imageView.userInteractionEnabled = YES;
 
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onDismiss)];
-    [self.imageView addGestureRecognizer:tap];;
+    [self.scrollView addGestureRecognizer:tap];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -91,9 +89,10 @@ static inline NSInteger RadianDifference(UIInterfaceOrientation from, UIInterfac
     UIView *window = [app keyWindow];
     [app setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
 
-    // match imageView configuration
+    // imageView configuration
     self.imageView.image = self.liftedImageView.image;
     self.imageView.contentMode = self.liftedImageView.contentMode;
+    self.imageView.clipsToBounds = self.liftedImageView.clipsToBounds;
 
     CGRect startFrame = [self.liftedImageView convertRect:self.liftedImageView.bounds toView:window];
     self.imageView.layer.position = CGPointMake(startFrame.origin.x + floorf(startFrame.size.width/2), startFrame.origin.y + floorf(startFrame.size.height/2));
@@ -143,11 +142,19 @@ static inline NSInteger RadianDifference(UIInterfaceOrientation from, UIInterfac
     UIInterfaceOrientation from = self.fromOrientation;
     UIInterfaceOrientation to = self.toOrientation;
 
+    CGSize imageSize = self.liftedImageView.image.size;
+    CGFloat maxHeight = 0;
+    CGFloat maxWidth = 0;
     if (UIInterfaceOrientationIsPortrait(to)) {
-        scale.toValue = [NSValue valueWithCGRect:CGRectMake(0, 0, endFrame.size.width, endFrame.size.height)];
+        // 570/323 = 320/y
+        maxHeight = MIN(endFrame.size.height,endFrame.size.width*imageSize.height/imageSize.width);
+        maxWidth = MIN(endFrame.size.width, endFrame.size.height*imageSize.width/imageSize.height);
     } else {
-        scale.toValue = [NSValue valueWithCGRect:CGRectMake(0, 0, endFrame.size.height, endFrame.size.width)];
+        // 570/323 = x/568
+        maxHeight = MIN(endFrame.size.width,endFrame.size.height*imageSize.height/imageSize.width);
+        maxWidth = MIN(endFrame.size.height, endFrame.size.width*imageSize.width/imageSize.height);
     }
+    scale.toValue = [NSValue valueWithCGRect:CGRectMake(0, 0, maxWidth, maxHeight)];
 
     NSInteger factor = RadianDifference(from, to);
     rotate.toValue = [NSValue valueWithCATransform3D:CATransform3DRotate(self.imageView.layer.transform, factor*M_PI_2, 0, 0, 1)];
@@ -163,7 +170,6 @@ static inline NSInteger RadianDifference(UIInterfaceOrientation from, UIInterfac
     self.imageView.layer.bounds = [scale.toValue CGRectValue];
     self.imageView.layer.transform = [rotate.toValue CATransform3DValue];
     [self.imageView.layer addAnimation:group forKey:nil];
-
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
@@ -250,6 +256,29 @@ static inline NSInteger RadianDifference(UIInterfaceOrientation from, UIInterfac
 
 #pragma mark - Orientation
 
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration
+{
+    [super willAnimateRotationToInterfaceOrientation:interfaceOrientation duration:duration];
+
+    CGSize imageSize = self.liftedImageView.image.size;
+    CGRect endFrame = self.containerView.bounds;
+    CGFloat maxHeight = MIN(endFrame.size.height,endFrame.size.width*imageSize.height/imageSize.width);
+    CGFloat maxWidth = MIN(endFrame.size.width, endFrame.size.height*imageSize.width/imageSize.height);
+    self.imageView.layer.bounds = CGRectMake(0, 0, maxWidth, maxHeight);
+    self.imageView.layer.position = self.containerView.layer.position;
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+
+}
+
 - (NSUInteger) supportedInterfaceOrientations {
     return self.supportedOrientations;
 }
@@ -268,8 +297,7 @@ static inline NSInteger RadianDifference(UIInterfaceOrientation from, UIInterfac
         self.liftedImageView.hidden = NO;
         [self.imageView removeFromSuperview];
     } else if ([[anim valueForKey:@"type"] isEqual:@"expand"]) {
-        self.imageView.layer.position = CGPointMake(self.containerView.frame.origin.x + floorf(self.containerView.frame.size.width/2), self.containerView.frame.origin.y + floorf(self.containerView.frame.size.height/2));
-        self.imageView.layer.bounds = CGRectMake(0, 0, self.containerView.frame.size.width, self.containerView.frame.size.height);
+        self.imageView.layer.position = self.containerView.layer.position;
         self.imageView.layer.transform = CATransform3DIdentity;
         [self.containerView addSubview:self.imageView];
     }

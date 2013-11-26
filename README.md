@@ -14,7 +14,3 @@ GGFullscreenImageViewController
     [self presentViewController:vc animated:YES completion:nil];
 
 You can optionally set `supportedOrientations` on `GGFullscreenImageViewController`. By default, `GGFullscreenImageViewController` supports all orientations defined in your info-plist. `GGFullscreenImageViewController` also provides a `UIScrollView` to allow zooming.
-
-# Notes
-
-You should set `imageView.contentMode = UIViewContentModeScaleAspectFit` for best results.

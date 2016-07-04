@@ -211,7 +211,7 @@
 			name = GGFullscreenImageViewControllerTests;
 			productName = GGFullscreenImageViewControllerTests;
 			productReference = 72E4F78F17154F9600644B6C /* GGFullscreenImageViewControllerTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -219,7 +219,8 @@
 		72E4F76117154F9600644B6C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastTestingUpgradeCheck = 0730;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "John Wu";
 			};
 			buildConfigurationList = 72E4F76417154F9600644B6C /* Build configuration list for PBXProject "GGFullscreenImageViewController" */;
@@ -354,6 +355,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -402,6 +404,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GGFullscreenImageViewController/GGFullscreenImageViewController-Prefix.pch";
 				INFOPLIST_FILE = "GGFullscreenImageViewController/GGFullscreenImageViewController-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tfm.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -413,6 +416,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GGFullscreenImageViewController/GGFullscreenImageViewController-Prefix.pch";
 				INFOPLIST_FILE = "GGFullscreenImageViewController/GGFullscreenImageViewController-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tfm.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -429,6 +433,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GGFullscreenImageViewController/GGFullscreenImageViewController-Prefix.pch";
 				INFOPLIST_FILE = "GGFullscreenImageViewControllerTests/GGFullscreenImageViewControllerTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tfm.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -446,6 +451,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GGFullscreenImageViewController/GGFullscreenImageViewController-Prefix.pch";
 				INFOPLIST_FILE = "GGFullscreenImageViewControllerTests/GGFullscreenImageViewControllerTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tfm.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;

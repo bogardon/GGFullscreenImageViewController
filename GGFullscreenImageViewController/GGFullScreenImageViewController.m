@@ -26,6 +26,7 @@ static inline GGOrientation convertOrientation(UIInterfaceOrientation orientatio
             return GGOrientationLandscapeRight;
             break;
         default:
+          return GGOrientationPortrait;
             break;
     }
 }
@@ -284,7 +285,7 @@ static inline NSInteger RadianDifference(UIInterfaceOrientation from, UIInterfac
 
 }
 
-- (NSUInteger) supportedInterfaceOrientations {
+- (UIInterfaceOrientationMask) supportedInterfaceOrientations {
     return self.supportedOrientations;
 }
 
